@@ -1,0 +1,9 @@
+# Interactive development
+ipython
+
+# HTML scraping
+beautifulsoup4
+html5lib
+
+# Data handling
+pandas
