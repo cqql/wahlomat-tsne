@@ -7,3 +7,15 @@ html5lib
 
 # Data handling
 pandas
+
+# Machine Learning
+numpy
+scipy
+scikit-learn
+
+# Visualization
+matplotlib
+Pillow
+
+# Notebook
+jupyter
