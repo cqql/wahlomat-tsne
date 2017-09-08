@@ -34,12 +34,16 @@ def main():
             docs.append(bs4.BeautifulSoup(f, "html5lib"))
 
     # Extract the vote elements
-    votes = [v for d in docs for v in d.select(".wom_votum_list.wom_on")]
+    votes = [v for d in docs for v in d.select(".wom_votum_list")]
+
+    # Filter the users votes
+    votes = [v for v in votes if not "wom_my_votum" in v.attrs["class"]]
 
     # Transform HTML into pandas columns
     df = pd.DataFrame()
     for v in votes:
         party_name = v.select_one(".wom_partei_balken").text
+        print(party_name)
         classes = [el.attrs["class"] for el in v.select(".wom_antworten_partei")]
         answers = [None] * len(classes)
         for i, cls in enumerate(classes):
